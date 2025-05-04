@@ -1,0 +1,19 @@
+# Node.js dependencies
+node_modules/
+.env
+
+# Logs
+logs
+*.log
+
+# Mac system files
+.DS_Store
+
+# React (Vite) build output
+client/dist
+
+# Editor settings
+.vscode/
+
+# OS metadata
+Thumbs.db
