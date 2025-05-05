@@ -1,0 +1,23 @@
+[
+  {
+    "id": "697e5dde-ebf2-41e2-b29e-14745d49e8fe",
+    "userName": "niv1234",
+    "hashed_password": "$2b$10$nGLNq/iYae9KjIFbDQR09u8J2QLm7IELBp8.Kiv8r4WnMLnkMgg9G",
+    "role": "admin",
+    "instrument": "guitar"
+  },
+  {
+    "id": "ebeab1a5-8898-401d-b1be-f15f9af13f4c",
+    "userName": "dani",
+    "hashed_password": "$2b$10$l3C2r7K.KN7PQkC/N5hwj.Gn5YvngSjnefa/1sjNngIklJZpw16Te",
+    "role": "user",
+    "instrument": "vocal"
+  },
+  {
+    "id": "4da78373-6ea7-487f-8d22-d4c96c334061",
+    "userName": "Eyal",
+    "hashed_password": "$2b$10$nNVD5B.wuqfbnjKgF4F0YOoh0Ja5NozZDOLkPA7UmAr.B6MnNjhSu",
+    "role": "user",
+    "instrument": "vocal"
+  }
+]
