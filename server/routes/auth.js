@@ -47,10 +47,16 @@ router.post('/signup', async (req, res) => {
 
     // Store user info in session to keep them logged in
     req.session.user = { userName, role };
+
+
+    const responseUser = {
+      id: newUser.id,
+      userName: newUser.userName,
+      role: newUser.role,
+      instrument: newUser.instrument,
+    };
     
-    console.log(req.session);
-    
-    res.status(201).json({ message: 'User registered successfully' });
+    res.status(201).json({user:responseUser});
 
   } catch (err) {
     console.error('Error during signup:', err);
@@ -90,10 +96,12 @@ router.post('/login', async (req, res) => {
       role: user.role
     };
     
-    console.log(req.session);
-
     // Respond with success
-    res.status(200).json({ message: 'Login successful' });
+    res.status(200).json({
+      userName: user.userName,
+      role: user.role
+    }
+    );
 
   } catch (err) {
     console.error('Error during login:', err);
