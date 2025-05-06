@@ -1,6 +1,6 @@
 
 import {useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   Paper,
@@ -11,15 +11,13 @@ import {
 } from "@mui/material";
 import { signupUser } from "../utilities/authUtils";
 
-const Signup = () => {
+const Signup = ({role, setCurrentUser}) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [instrument, setInstrument] = useState("");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const isAdmin = location.pathname.includes("admin");
 
   // Handle form submit
   const handleSubmit = async (e) => {
@@ -41,23 +39,13 @@ const Signup = () => {
       return;
     }
 
-    const role = isAdmin ? "admin" : "user";
-
     const response = await signupUser(userName, password, instrument, role);
 
     if (response?.user) {
-
+      setCurrentUser(response?.user);
+      
       // Navigate based on role
       response.user.role === "admin" ?navigate("/search"):navigate("/waiting");
-
-      //-------
-      // if (user.role === "admin") {
-      //   navigate("/search");
-      // } else {
-      //   navigate("/waiting");
-      // }
-      //-----------
-      
     }else{
           setError("Signup failed, Try a different username");
           return;

@@ -1,5 +1,6 @@
 
 import { Routes, Route } from "react-router-dom";
+
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import WaitingRoom from "./pages/WaitingRoom";
@@ -8,13 +9,13 @@ import LiveView from "./pages/LiveView";
 import NotFound from "./pages/NotFound";
 
 
-const Router = () => (
+const Router = ({currentUser,setCurrentUser}) => (
   <Routes>
-    <Route path="/" element={<Login />} />
-    <Route path="/signup" element={<Signup />} />
-    <Route path="/signup/admin" element={<Signup isAdmin={true} />} />
-    <Route path="/waiting" element={<WaitingRoom />} />
-    <Route path="/search" element={<SongSearch />} />
+    <Route path="/" element={<Login setCurrentUser = {setCurrentUser} />} />
+    <Route path="/signup" element={<Signup role="user" setCurrentUser = {setCurrentUser} />} />
+    <Route path="/signup/admin" element={<Signup role="admin" setCurrentUser = {setCurrentUser} />} />
+    <Route path="/waiting" element={<WaitingRoom currentUser = {currentUser} />} />
+    <Route path="/search" element={<SongSearch currentUser={currentUser} />} />
     <Route path="/live" element={<LiveView />} />
     <Route path="*" element={<NotFound />} />
   </Routes>

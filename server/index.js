@@ -1,4 +1,6 @@
 
+const CLIENT_URL = "http://localhost:5173";
+
 const express = require('express');
 const cors = require('cors');
 const session = require('express-session');
@@ -9,9 +11,13 @@ const songsRoutes = require("./routes/songs");
 const app = express();
 const PORT = 5000;
 
+const setupSocket = require("./socket"); // Socket.IO setup function
+const http = require("http"); 
+const server = http.createServer(app); // Create HTTP server for both Express and socket.io
+
 // CORS : allow frontend on localhost / deploy to communicate with the server
 app.use(cors({
-  origin: 'http://localhost:5173' ,
+  origin: CLIENT_URL ,
   credentials: true
 }));
 
@@ -29,10 +35,16 @@ app.use(session({
   }
 }));
 
+// Routes:
 app.use('/auth', authRoutes);     // Routes for authentication 
 app.use("/songs", songsRoutes);   // Routes for songs 
 
+
+// Attach socket.io to the server
+setupSocket(server);
+
+
 // Start the server
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

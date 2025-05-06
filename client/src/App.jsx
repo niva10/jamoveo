@@ -7,6 +7,7 @@ import Router from "./router";
 
 function App() {
 
+  const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ function App() {
         const user = await fetchCurrentUser();
 
         if (user) {
+          setCurrentUser(user);
           if (user.role === "admin") {
             navigate("/search");
           } else {
@@ -34,7 +36,7 @@ function App() {
   }, [navigate]);
 
   if (loading) return <div>Loading...</div>;
-  return <Router/>
+  return <Router currentUser = {currentUser} setCurrentUser = {setCurrentUser} />
 }
 
 export default App;

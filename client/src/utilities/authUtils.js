@@ -44,8 +44,6 @@ export async function loginUser(userName, password) {
   }
 }
 
-//----------
-
 export async function signupUser(userName, password, instrument, role) {
   try {
     const response = await fetch(`${BASE_URL}/auth/signup`, {

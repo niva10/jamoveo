@@ -13,7 +13,7 @@ import {
 import { loginUser } from "../utilities/authUtils";
 
 // Login page component
-const Login = () => {
+const Login = ({setCurrentUser}) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -45,9 +45,10 @@ const Login = () => {
       setError("Invalid username or password");
       return;
     }
-
+    
+    setCurrentUser(user);
+    
     // Navigate based on role
-  
     if (user.role === "admin") {
       navigate("/search");
     } else {
