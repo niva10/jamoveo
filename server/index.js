@@ -1,5 +1,5 @@
 
-const CLIENT_URL = "http://localhost:5173";
+const CLIENT_URL = process.env.CLIENT_URL ||"http://localhost:5173";
 
 const express = require('express');
 const cors = require('cors');
@@ -9,7 +9,8 @@ const authRoutes = require('./routes/auth');
 const songsRoutes = require("./routes/songs");
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
 
 const setupSocket = require("./socket"); // Socket.IO setup function
 const http = require("http"); 
@@ -46,5 +47,5 @@ setupSocket(server);
 
 // Start the server
 server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port: ${PORT}`);
 });
