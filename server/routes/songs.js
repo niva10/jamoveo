@@ -2,12 +2,11 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-
 const router = express.Router();
 
 const SONGS_FILE = path.join(__dirname, "../data/songs.json");
 
-// GET method that fetches  all songs from the database
+// GET method that fetches all the songs from the database
 router.get("/", (req, res) => {
   try {
     const songsData = fs.readFileSync(SONGS_FILE, "utf-8");
@@ -19,7 +18,6 @@ router.get("/", (req, res) => {
     res.status(500).json({ error: "Failed to load songs" });
   }
 });
-
 
 // GET method that return specific song from the database
 router.get("/lyrics/:songId", (req, res) => {

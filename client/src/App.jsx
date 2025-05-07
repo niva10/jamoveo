@@ -1,15 +1,14 @@
 
 import { useState, useEffect } from "react";
 import {useNavigate } from "react-router-dom";
-import { fetchCurrentUser } from "./utilities/authUtils";
 
+import { fetchCurrentUser } from "./utilities/authUtils";
 import Router from "./router";
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,5 +38,4 @@ function App() {
   if (loading) return <div>Loading...</div>;
   return <Router currentUser = {currentUser} setCurrentUser = {setCurrentUser} />
 }
-
 export default App;

@@ -13,6 +13,7 @@ const Login = ({setCurrentUser}) => {
 
   const navigate = useNavigate();
 
+  // Handle form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -52,6 +53,7 @@ const Login = ({setCurrentUser}) => {
   return (
     <Container maxWidth="xs">
       <Paper elevation={6} sx={{ p: 3, mt: 18 }}>
+        
         <Typography variant="h5" align="center" gutterBottom>
           Login
         </Typography>

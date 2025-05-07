@@ -21,7 +21,7 @@ router.post('/signup', async (req, res) => {
     return res.status(400).json({ error: 'Missing required fields' });
   }
   try {
-    // Load  all existing users from the JSON file(DB)
+    // Load all existing users from the JSON file(DB)
     const users = JSON.parse(fs.readFileSync(USERS_FILE, 'utf-8'));
 
     // Check if user with the same name already exists
@@ -133,7 +133,7 @@ router.post('/logout', (req, res) => {
   });
 });
 
-// Get method - route to check if user is currently logged in
+// Get method - ME - route to check if user is currently logged in
 router.get('/me', (req, res) => {
 
   // If no user session exists, respond with 401 (unauthorized)

@@ -25,7 +25,7 @@ const LiveView = ({currentUser}) => {
   const songFromNavigate  = location.state;
  
 
-    // Receive the current song either from navigation or socket event
+    // Receive the current song from navigation or from socket event
     useEffect(() => {
 
       if (songFromNavigate) {
@@ -49,6 +49,7 @@ const LiveView = ({currentUser}) => {
         navigate("/"); 
       });
       
+      // clean the listeners
       return () => {
         socket.off("play_song");
         socket.off("stop_song"); 
@@ -117,7 +118,6 @@ const LiveView = ({currentUser}) => {
   
     const handleQuit = () => {
       socket.emit("stop_song");
-      // navigate("/");
     };
 
     return (

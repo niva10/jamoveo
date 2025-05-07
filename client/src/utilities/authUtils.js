@@ -1,7 +1,7 @@
 
 import { BASE_SERVER_URL } from "./api";
 
-// Utility function to fetch the currently logged-in user from the backend
+// Fetch the currently logged-in user from the backend
 export async function fetchCurrentUser() {
     try {
       const res = await fetch(`${BASE_SERVER_URL}/auth/me`, {
@@ -44,6 +44,7 @@ export async function loginUser(userName, password) {
   }
 }
 
+// Send signup request to the backend
 export async function signupUser(userName, password, instrument, role) {
   try {
     const response = await fetch(`${BASE_SERVER_URL}/auth/signup`, {

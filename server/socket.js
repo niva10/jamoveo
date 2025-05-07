@@ -29,7 +29,6 @@ function setupSocket(server) {
       io.emit("stop_song");
     });
     
-
     // Handle client disconnect
     socket.on("disconnect", () => {
       console.log("User disconnected");

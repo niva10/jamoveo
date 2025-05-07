@@ -1,14 +1,8 @@
 
-import {useState } from "react";
+import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Container,
-  Paper,
-  TextField,
-  Button,
-  Typography,
-  Box,
-} from "@mui/material";
+import {  Container, Paper, TextField, Button, Typography, Box  } from "@mui/material";
+
 import { signupUser } from "../utilities/authUtils";
 
 const Signup = ({role, setCurrentUser}) => {
@@ -45,7 +39,7 @@ const Signup = ({role, setCurrentUser}) => {
       setCurrentUser(response?.user);
       
       // Navigate based on role
-      response.user.role === "admin" ?navigate("/search"):navigate("/waiting");
+      response.user.role === "admin" ? navigate("/search"): navigate("/waiting");
     }else{
           setError("Signup failed, Try a different username");
           return;
@@ -55,6 +49,7 @@ const Signup = ({role, setCurrentUser}) => {
   return (
     <Container maxWidth="xs">
       <Paper elevation={6} sx={{ p: 3, mt: 18 }}>
+        
         <Typography variant="h5" align="center" gutterBottom>
           Signup
         </Typography>
@@ -103,6 +98,7 @@ const Signup = ({role, setCurrentUser}) => {
             Signup
           </Button>
         </Box>
+        
       </Paper>
     </Container>
   );

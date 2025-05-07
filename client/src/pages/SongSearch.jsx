@@ -1,12 +1,14 @@
 
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { Container,Typography, List,ListItem,
          ListItemText, TextField, Button} from "@mui/material";
+
 import { BASE_SERVER_URL } from "../utilities/api";
 
 // Import the socket instance to emit events to the server
 import socket from "../utilities/socketClient";
-import { useNavigate } from "react-router-dom";
 
 const Search = ({currentUser}) => {
 
@@ -21,7 +23,7 @@ const Search = ({currentUser}) => {
     // Listen for the "play_song" event from the server and navigate to live view page
     socket.on("play_song", (song) => {
 
-      console.log("Received song broadcast_2:15:", song);
+      console.log("Received song broadcast:", song);
 
       if (location.pathname !== "/live") {
         navigate("/live", { state: song });
@@ -72,7 +74,6 @@ const Search = ({currentUser}) => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
         
-
       {error && (
         <Typography color="error" variant="body1">
           {error}
