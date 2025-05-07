@@ -1,7 +1,12 @@
 
 import { useEffect, useState } from "react";
-import { Container,Typography, List,ListItem,ListItemText,Divider, TextField, Button} from "@mui/material";
-import { BASE_URL } from "../utilities/api";
+import { Container,Typography, List,ListItem,
+         ListItemText, TextField, Button} from "@mui/material";
+import { BASE_SERVER_URL } from "../utilities/api";
+
+// Import the socket instance to emit events to the server
+import socket from "../utilities/socketClient";
+import { useNavigate } from "react-router-dom";
 
 const Search = ({currentUser}) => {
 
@@ -9,11 +14,23 @@ const Search = ({currentUser}) => {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const navigate = useNavigate();
+
   useEffect(() => {
+
+    // Listen for the "play_song" event from the server and navigate to live view page
+    socket.on("play_song", (song) => {
+
+      console.log("Received song broadcast_2:15:", song);
+
+      if (location.pathname !== "/live") {
+        navigate("/live", { state: song });
+      }
+    });
 
     const fetchSongs = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/songs`);
+        const res = await fetch(`${BASE_SERVER_URL}/songs`);
         if (!res.ok){
           throw new Error("Failed to fetch songs");
         }
@@ -27,7 +44,10 @@ const Search = ({currentUser}) => {
     };
 
     fetchSongs();
-  }, []);
+
+    // Clean to avoid duplicate listeners
+    return () => socket.off("play_song");
+  }, [navigate]);
 
   const filteredSongs = songs.filter((song) =>
     song.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -90,7 +110,9 @@ const Search = ({currentUser}) => {
 
             {
             currentUser?.role === "admin" ? <Button variant="contained" 
-                                            sx={{borderRadius:'6px',backgroundColor:'#3f51b5'}}>Brodcast
+                                            sx={{borderRadius:'6px',backgroundColor:'#3f51b5'}}
+                                            onClick={() => socket.emit("start_song", song)}
+                                            >Live
                                             </Button> : ''
             }
             

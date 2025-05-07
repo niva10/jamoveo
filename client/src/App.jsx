@@ -13,11 +13,12 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+
     async function init() {
       try {
         const user = await fetchCurrentUser();
 
-        if (user) {
+        if (user && location.pathname === "/") {
           setCurrentUser(user);
           if (user.role === "admin") {
             navigate("/search");

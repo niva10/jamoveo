@@ -5,14 +5,16 @@
       "title": "Hey Jude",
       "title_he": "היי ג'וד",
       "artist": "The Beatles",
-      "artist_he": "הביטלס"
+      "artist_he": "הביטלס",
+      "language": "en"
     },
     {
       "id": "veech_shelo",
       "title": "Ve'ech Shelo",
       "title_he": "ואיך שלא",
       "artist": "Ariel Zilber",
-      "artist_he": "אריאל זילבר"
+      "artist_he": "אריאל זילבר",
+      "language": "he"
     }
   ]
   

@@ -16,7 +16,7 @@ const Router = ({currentUser,setCurrentUser}) => (
     <Route path="/signup/admin" element={<Signup role="admin" setCurrentUser = {setCurrentUser} />} />
     <Route path="/waiting" element={<WaitingRoom currentUser = {currentUser} />} />
     <Route path="/search" element={<SongSearch currentUser={currentUser} />} />
-    <Route path="/live" element={<LiveView />} />
+    <Route path="/live" element={<LiveView  currentUser={currentUser} />} />
     <Route path="*" element={<NotFound />} />
   </Routes>
 );

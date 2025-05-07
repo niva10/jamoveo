@@ -15,13 +15,20 @@ function setupSocket(server) {
 
   // Handle client connection
   io.on("connection", (socket) => {
-    console.log("User connected via socket");
+    console.log("User connected via socket", socket.id);
 
     // Listen for a song start event from admin and broadcast to other users
-    socket.on("start_song", (songId) => {
-      console.log("Admin started song:", songId);
-      socket.broadcast.emit("play_song", songId);
+    socket.on("start_song", (song) => {
+      console.log("Admin started song:", song.id);
+      io.emit("play_song", song);
     });
+
+    // Listen for a song stop event from admin and broadcast to other users
+    socket.on("stop_song", () => {
+      console.log("Admin stopped the song");
+      io.emit("stop_song");
+    });
+    
 
     // Handle client disconnect
     socket.on("disconnect", () => {

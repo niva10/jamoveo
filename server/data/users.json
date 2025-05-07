@@ -1,12 +1,5 @@
 [
   {
-    "id": "fbb00ce7-20a5-4479-a87a-19e481e93d0b",
-    "userName": "Eyal",
-    "hashed_password": "$2b$10$Jj/T4YgF9RF3cTV5KG/vKuovaI.NiAOFHk/ln9enS3VlVf6F.rqAa",
-    "role": "user",
-    "instrument": "vocal"
-  },
-  {
     "id": "6c677615-1753-44be-97ad-72bf3c27448d",
     "userName": "Niv",
     "hashed_password": "$2b$10$nxpS5m22fd7l1R4nbEvEK.cEnhCJKdyE6/7ViUfA.uCDTfAWsp4Bu",
@@ -14,24 +7,17 @@
     "instrument": "vocal"
   },
   {
-    "id": "c1610ea8-8380-41db-9ff2-9b5de9faabf6",
-    "userName": "Eli",
-    "hashed_password": "$2b$10$3wIxL2pym6IpSOn7MrFtrOEweCZKp.ZseG.rNYi94sNh/E3UbYuD6",
+    "id": "5dd6d110-3893-4903-b439-7df157fe59d8",
+    "userName": "Noy",
+    "hashed_password": "$2b$10$q0YoGrK8wE7JSxULCsq0.Oz90SMjHVTN01gTfPbOXU0LfR3ynBqHS",
     "role": "user",
     "instrument": "vocal"
   },
   {
-    "id": "c632a37d-b4c7-4cae-9f89-93682996fe02",
+    "id": "7a26c0ed-9ae7-4e83-befb-4f6d09897ec8",
     "userName": "Avi",
-    "hashed_password": "$2b$10$AXWMnqOyA1vdgblPv2pvxOY.CorOTi5nELYWJLrEJd/NA0ZliR3aC",
+    "hashed_password": "$2b$10$Iswe4v.JbHGQhXr2IWwWdOg2t.cXLNPj7ma/vleUkzYTSpU7kKUqu",
     "role": "admin",
-    "instrument": "vocal"
-  },
-  {
-    "id": "4d078388-f5b7-4001-b7e3-dce932154897",
-    "userName": "Noy",
-    "hashed_password": "$2b$10$NS2XoKcipsDlmiQTft/nMuB5xNJbJ0qTCoNFfnqVmdwo6sWg3XQSO",
-    "role": "admin",
-    "instrument": "vocal"
+    "instrument": "guitar"
   }
 ]

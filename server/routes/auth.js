@@ -93,13 +93,15 @@ router.post('/login', async (req, res) => {
     // Save user info in session
     req.session.user = {
       userName: user.userName,
-      role: user.role
+      role: user.role,
+      instrument: user.instrument
     };
     
     // Respond with success
     res.status(200).json({
       userName: user.userName,
-      role: user.role
+      role: user.role,
+      instrument: user.instrument
     }
     );
 

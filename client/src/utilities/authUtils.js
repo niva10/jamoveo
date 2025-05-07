@@ -1,10 +1,10 @@
 
-import { BASE_URL } from "./api";
+import { BASE_SERVER_URL } from "./api";
 
 // Utility function to fetch the currently logged-in user from the backend
 export async function fetchCurrentUser() {
     try {
-      const res = await fetch(`${BASE_URL}/auth/me`, {
+      const res = await fetch(`${BASE_SERVER_URL}/auth/me`, {
         method: "GET",
         credentials: "include", // includes session cookies in the request
       });
@@ -23,7 +23,7 @@ export async function fetchCurrentUser() {
 // Send login request to the backend
 export async function loginUser(userName, password) {
   try {
-    const response = await fetch(`${BASE_URL}/auth/login`, {
+    const response = await fetch(`${BASE_SERVER_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export async function loginUser(userName, password) {
 
 export async function signupUser(userName, password, instrument, role) {
   try {
-    const response = await fetch(`${BASE_URL}/auth/signup`, {
+    const response = await fetch(`${BASE_SERVER_URL}/auth/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
