@@ -12,7 +12,7 @@ function setupSocket(server) {
       credentials: true,
     },
   });
-
+  
   // Handle client connection
   io.on("connection", (socket) => {
     console.log("User connected via socket", socket.id);
